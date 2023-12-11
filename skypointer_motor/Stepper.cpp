@@ -1,41 +1,59 @@
 #include "Stepper.h"
-#include "mbed.h"
-
-stepper::stepper(PinName _en, PinName ms1, PinName ms2, PinName ms3, PinName _stepPin, PinName dir):en(_en),
-    microstepping(ms1, ms2, ms3),
-    stepPin(_stepPin),
-    direction(dir)
+using namespace std;
+Stepper::Stepper(PinName EN=D1, PinName MS1=D2, PinName MS2=D3, PinName MS3=D4, PinName STEP=D10, PinName DIR=D0)
+    :en(EN),
+    ms1(MS1),
+    ms2(MS2),
+    ms3(MS3),
+    stepPin(STEP),
+    direction(DIR)
 {
+    disable();
 }
-
-void stepper::step(int microstep, int dir, float speed)
+void Stepper::step(int microstep, int dir, float speed)
 {
-    if (microstep == 1) {
-        microstepping = 0;
-    } else if (microstep <= 4) {
-        microstepping = microstep / 2;
-    } else if (microstep > 4) {
-        microstepping = (microstep / 2) - 1;
+    switch(microstep)
+    {
+        case 1:
+            ms1 = 0;
+            ms2 = 0;
+            ms3 = 0;
+            break;
+        case 2:
+            ms1 = 1;
+            ms2 = 0;
+            ms3 = 0;
+            break;
+        case 4:
+            ms1 = 0;
+            ms2 = 1;
+            ms3 = 0;
+            break;
+        case 8:
+            ms1 = 1;
+            ms2 = 1;
+            ms3 = 0;
+            break;
+        case 16:
+            ms1 = 1;
+            ms2 = 1;
+            ms3 = 1;
+            break;
+        default:
+            printf("Invalid microstep number.\n");
+            return;
     }
-    if (dir == 1) {
-        direction = 0;
-    } else if (dir == 0) {
-        direction = 1;
-    }
-    
-    //  Step...
+    direction = dir;
     stepPin = 1;
     wait_us(1000000/speed);
     stepPin = 0;
     wait_us(1000000/speed);
 }
-
-void stepper::enable()
+void Stepper::enable()
 {
     en = 0;
 }
-
-void stepper::disable()
+void Stepper::disable()
 {
     en = 1;
 }
