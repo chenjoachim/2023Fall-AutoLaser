@@ -13,7 +13,9 @@
 - [Achievements](#Achievements)
 - [Setup](#Setup)
 - [Usage](#Usage)
-- [Progress](#Progress)
+- [Challenges](#Challenges)
+- [Achievements](#Achievements)
+- [Presentation](#Presentation)
 - [Demo](#Demo)
 - [References](#References)
 
@@ -159,7 +161,7 @@ The Sky Pointer project demonstrates a remarkable acheivement in creating an acc
 [Final presentation ppt](https://docs.google.com/presentation/d/1YeRcgsimlEcWzX1uLTKFrOCfOVDhEgTQauhfTa8_i14/edit?usp=sharing)
 ## Demo
 [Demo video](https://youtu.be/JGX2cEVmW8k?feature=shared)
-# References
+## References
 ##### [Ninja API](https://api-ninjas.com/)
 ##### [Astropy Docs](https://docs.astropy.org/en/stable/)
 ##### [How to Calibrate a Magnetometer](https://www.digikey.com/en/maker/projects/how-to-calibrate-a-magnetometer/50f6bc8f36454a03b664dca30cf33a8b)
