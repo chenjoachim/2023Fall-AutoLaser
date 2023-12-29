@@ -1,4 +1,4 @@
-# 2023Fall-AutoLaser
+# 2023Fall-SkyPointer
 ## 1. Set up
 ### 1.1 wifi set up
 Both PC and stm32 need to connect to the same wifi.
